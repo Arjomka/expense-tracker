@@ -22,10 +22,52 @@ expenses = []
 # https://www.geeksforgeeks.org/read-write-and-parse-json-using-python/ (Python read JSON file)
 pass
 
+import json
+
 while True:
     command = input("\nChoose command:")
     if command == "1":
-        pass
+            
+            name = input("Enter a transaction name: ")
+            sum = int(input("Enter transactions sum: "))
+            category = input("Enter transactions category: ")
+            expense = {"Transaction name": name, "Transaction sum": sum, "Transactions category": category}
+            expenses.append(expense)
+            print(expenses)
+
+            pass 
+    if command == "2":
+         print("Your expenses is: ", expenses)
+    if command == "3":
+         def sort_10bigest(expenses):
+              return int(expenses["Transaction sum"])
+         expenses.sort(key=sort_10bigest)
+         print(expenses[:10])
+    if command == "4":
+         def sort_10smalest(expenses):
+              return int(expenses["Transaction sum"])
+         expenses.sort(key=sort_10smalest, reverse = True)
+         print(expenses[:10])
+    if command == "5":
+         total_sum = 0
+         count = 0
+
+         for item in expenses:
+              if isinstance(item, (int, float)):
+                   total_sum += item
+                   count += 1
+                   if count > 0:
+                        average = total_sum / count
+                        print("Average: ", average)
+                        
+                
+            
+        
+             
+        
+        
+                  
+        
     if command == "e":
         print("Exiting...")
         break
